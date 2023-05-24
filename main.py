@@ -12,6 +12,7 @@ from src import *
 # Parse arguments
 parser = argparse.ArgumentParser(description='Run the app')
 parser.add_argument('--config', type=str, default='config.yaml', help='Path to config file')
+parser.add_argument('--log', type=str, default='logging.yaml', help='Path to logging config file')
 
 
 def main():

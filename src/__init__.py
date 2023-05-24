@@ -14,7 +14,7 @@ def _welcome():
     print(
         'NOTICE: This software is licensed under the GNU General Public\n'
         'License v3.0 and SHALL NOT be used for commercial purpose. All\n'
-        'rights reserved to HobeeLiu. Please contact me if the project\n'
+        'rights reserved to Hobee Liu. Please contact me if the project\n'
         'has any potential infringement risks.',
     )
 
