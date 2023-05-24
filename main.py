@@ -3,7 +3,8 @@ import argparse
 import os
 import sys
 
-from src.crawler import Crawler
+from src.crawler import get_crawler
+from src.api.eastmoney import EastMoneyFundAPI
 # from src import app
 # from src import config
 # from src import logger
@@ -13,13 +14,16 @@ from src.crawler import Crawler
 parser = argparse.ArgumentParser(description='Run the app')
 parser.add_argument('--config', type=str, default='config.yaml', help='Path to config file')
 parser.add_argument('--log', type=str, default='logging.yaml', help='Path to logging config file')
-parser.add_argument('-q','--query', type=str, help='Query fund by code')
+parser.add_argument('-q','--query', type=str, default='-1', help='Query fund by code')
+parser.add_argument('-v','--version', action='version', version='%(prog)s 0.1.0')
+parser.add_argument('--use-api', type=str, default='eastmoney', help='Use specific API to get fund info')
 
 def main():
     args = parser.parse_args()
     if args.query:
         print("Query fund: {}".format(args.query))
-        crawler = Crawler()
+        api = EastMoneyFundAPI()
+        crawler = get_crawler(fund_api=api)
         fund = crawler.crawler_fund_by_code(args.query)
         if fund:
             print(fund)

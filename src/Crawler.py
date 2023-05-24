@@ -6,3 +6,6 @@ class Crawler:
     
     def crawler_fund_by_code(self, code: str):
         return self._api.get_fund_by_code(code)
+    
+def get_crawler(fund_api: BaseFundAPI) -> Crawler:
+    return Crawler(fund_api)
