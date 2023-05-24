@@ -3,7 +3,7 @@ import argparse
 import os
 import sys
 
-from src import *
+from src.crawler import Crawler
 # from src import app
 # from src import config
 # from src import logger
@@ -13,10 +13,18 @@ from src import *
 parser = argparse.ArgumentParser(description='Run the app')
 parser.add_argument('--config', type=str, default='config.yaml', help='Path to config file')
 parser.add_argument('--log', type=str, default='logging.yaml', help='Path to logging config file')
-
+parser.add_argument('-q','--query', type=str, help='Query fund by code')
 
 def main():
     args = parser.parse_args()
+    if args.query:
+        print("Query fund: {}".format(args.query))
+        crawler = Crawler()
+        fund = crawler.crawler_fund_by_code(args.query)
+        if fund:
+            print(fund)
+        else:
+            print("Fund not found")
     # config_path = args.config
     # if not os.path.exists(config_path):
     #     print("Config file not found: {}".format(config_path))
