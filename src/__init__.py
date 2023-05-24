@@ -17,6 +17,7 @@ def _welcome():
         'rights reserved to Hobee Liu. Please contact me if the project\n'
         'has any potential infringement risks.',
     )
+    print('')
 
 
 _welcome()
