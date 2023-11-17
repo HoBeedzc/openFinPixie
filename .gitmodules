@@ -1,0 +1,6 @@
+[submodule "src/frontend"]
+	path = src/frontend
+	url = https://github.com/HoBeedzc/FinPixie-Frontend.git
+[submodule "src/backend"]
+	path = src/backend
+	url = https://github.com/HoBeedzc/FinPixie-Backend.git
